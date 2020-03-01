@@ -1,1 +1,14 @@
-<p>demo works!</p>
+<div>
+  <nav>
+    <a>Navigation:</a>
+    <ul>
+      <!-- routerLink作用是链接到指定路由，参数是数组，['home', 'about']表示home/about -->
+      <li><a [routerLink]="['home/2']">Home</a></li>
+      <li><a [routerLink]="['about/3']">About</a></li>
+      <li><a [routerLink]="['contact/4']">Contact us</a></li>
+    </ul>
+  </nav>
+
+  <!-- router-outlet用来显示每个Route组件内容的container -->
+  <router-outlet></router-outlet>
+</div>
