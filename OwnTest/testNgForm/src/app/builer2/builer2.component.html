@@ -1,0 +1,11 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit($event, myForm.value)">
+
+  <input [formControl]="myForm.controls['sku']">
+  <div *ngIf="sku.invalid" >SKU is invalid</div>
+
+  <input [formControl]="myForm.get('productName')" (ngModel)="productName">
+  <div *ngIf="productName.invalid" >productName is invalid</div>
+  <div *ngIf="productName.hasError('errcode1')" >productName is not 1</div>
+
+  <button type="submit">Submit</button>
+</form>
