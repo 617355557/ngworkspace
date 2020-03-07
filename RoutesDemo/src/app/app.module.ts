@@ -11,6 +11,7 @@ import { ContactComponent } from './contact/contact.component';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {APP_BASE_HREF, HashLocationStrategy, LocationStrategy, PathLocationStrategy} from '@angular/common';
 
+// 定义一个路由
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home/:id', component: HomeComponent}, //  path/:id，/:id方式是用来配置路由参数
