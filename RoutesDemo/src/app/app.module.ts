@@ -10,6 +10,10 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {APP_BASE_HREF, HashLocationStrategy, LocationStrategy, PathLocationStrategy} from '@angular/common';
+import { LoginComponent } from './login/login.component';
+import { ProtectedComponent } from './protected/protected.component';
+import {LoggerInGuard} from './service/LoggerInGuard';
+import {AUTH_PROVIDERS} from './service/AuthService';
 
 // 定义一个路由
 const routes: Routes = [
@@ -18,6 +22,7 @@ const routes: Routes = [
   {path: 'about/:id', component: AboutComponent},
   {path: 'contact/:id', component: ContactComponent},
   {path: 'contactus', redirectTo: 'contact'}
+  // {path: 'protected', component: ProtectedComponent, canActivate: [LoggerInGuard]}
 ];
 
 @NgModule({
@@ -26,7 +31,9 @@ const routes: Routes = [
     DemoComponent,
     HomeComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    LoginComponent,
+    ProtectedComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +42,10 @@ const routes: Routes = [
   ],
   providers: [
     // {provide: LocationStrategy, useClass: HashLocationStrategy},  // 路由策略，LocationStrategy是锚点标记策略。PathLocationStrategy是默认路由策略，是HTML5路由
-    {provide: APP_BASE_HREF, useValue: '/app'}  // 相当于 <base href="/app">
+    {provide: APP_BASE_HREF, useValue: '/app'},  // 相当于 <base href="/app">
+    // auth模块相关
+    AUTH_PROVIDERS, // 认证保护
+    LoggerInGuard // 守卫路由
   ],
   bootstrap: [DemoComponent]
 })
