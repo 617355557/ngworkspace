@@ -11,9 +11,11 @@ import { ContactComponent } from './contact/contact.component';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {APP_BASE_HREF, HashLocationStrategy, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { LoginComponent } from './login/login.component';
-import { ProtectedComponent } from './protected/protected.component';
+import {childRoutes, ProtectedComponent} from './protected/protected.component';
 import {LoggerInGuard} from './service/LoggerInGuard';
 import {AUTH_PROVIDERS} from './service/AuthService';
+import { MainComponent } from './main/main.component';
+import { IdComponent } from './id/id.component';
 
 // 定义一个路由
 const routes: Routes = [
@@ -21,8 +23,9 @@ const routes: Routes = [
   {path: 'home/:id', component: HomeComponent}, //  path/:id，/:id方式是用来配置路由参数
   {path: 'about/:id', component: AboutComponent},
   {path: 'contact/:id', component: ContactComponent},
-  {path: 'contactus', redirectTo: 'contact'}
-  // {path: 'protected', component: ProtectedComponent, canActivate: [LoggerInGuard]}
+  {path: 'contactus', redirectTo: 'contact'},
+  {path: 'protected', component: ProtectedComponent, children: childRoutes} // children：子路由
+  // {path: 'protected', component: ProtectedComponent, canActivate: [LoggerInGuard]},
 ];
 
 @NgModule({
@@ -33,7 +36,9 @@ const routes: Routes = [
     AboutComponent,
     ContactComponent,
     LoginComponent,
-    ProtectedComponent
+    ProtectedComponent,
+    MainComponent,
+    IdComponent
   ],
   imports: [
     BrowserModule,

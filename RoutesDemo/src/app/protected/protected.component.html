@@ -1,1 +1,14 @@
-<p>protected works!</p>
+<div>
+
+  <nav>
+    <a>Navigation:</a>
+    <ul>
+      <!-- routerLink作用是链接到指定路由，参数是数组，['home', 'about']表示home/about -->
+      <li><a [routerLink]="['./main']">Main</a></li>
+      <li><a [routerLink]="['./id']">Id</a></li>
+    </ul>
+  </nav>
+
+  <!-- router-outlet用来显示每个Route组件内容的container -->
+  <router-outlet></router-outlet>
+</div>

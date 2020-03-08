@@ -1,47 +1,47 @@
 <!-- route demo -->
-<div>
-  <p>
-    <!-- #newquery标记这个dom对象，newquery.value代表这个对象的value属性值 -->
-    <input type="text" #newquery
-           [value]=""
-           (keydown.enter)="submit(newquery.value)">
-    <button type="button" (click)="submit(newquery.value)">Search</button>
-  </p>
+<!--<div>-->
+  <!--<p>-->
+    <!--&lt;!&ndash; #newquery标记这个dom对象，newquery.value代表这个对象的value属性值 &ndash;&gt;-->
+    <!--<input type="text" #newquery-->
+           <!--[value]=""-->
+           <!--(keydown.enter)="submit(newquery.value)">-->
+    <!--<button type="button" (click)="submit(newquery.value)">Search</button>-->
+  <!--</p>-->
 
-  <nav>
-    <a>Navigation:</a>
-    <ul>
-      <!-- routerLink作用是链接到指定路由，参数是数组，['home', 'about']表示home/about -->
-      <li><a [routerLink]="['home', 2]">Home</a></li>
-      <li><a [routerLink]="['about', 3]">About</a></li>
-      <li><a [routerLink]="['contact', 4]">Contact us</a></li>
-    </ul>
-  </nav>
-
-  <!-- router-outlet用来显示每个Route组件内容的container -->
-  <router-outlet></router-outlet>
-</div>
-
-<!-- auth模块 -->
-<!--<div class="page-header">-->
-  <!--<div class="container">-->
-    <!--<h1>Router Sample</h1>-->
-    <!--<div class="navLinks">-->
+  <!--<nav>-->
+    <!--<a>Navigation:</a>-->
+    <!--<ul>-->
+      <!--&lt;!&ndash; routerLink作用是链接到指定路由，参数是数组，['home', 'about']表示home/about &ndash;&gt;-->
       <!--<li><a [routerLink]="['home', 2]">Home</a></li>-->
       <!--<li><a [routerLink]="['about', 3]">About</a></li>-->
       <!--<li><a [routerLink]="['contact', 4]">Contact us</a></li>-->
-      <!--<li><a [routerLink]="['protected']">Protected</a></li>-->
-    <!--</div>-->
-  <!--</div>-->
+    <!--</ul>-->
+  <!--</nav>-->
+
+  <!--&lt;!&ndash; router-outlet用来显示每个Route组件内容的container &ndash;&gt;-->
+  <!--<router-outlet></router-outlet>-->
 <!--</div>-->
 
-<!--<div id="content">-->
-  <!--<div class="container">-->
+<!-- auth模块 -->
+<div class="page-header">
+  <div class="container">
+    <h1>Router Sample</h1>
+    <div class="navLinks">
+      <li><a [routerLink]="['home', 2]">Home</a></li>
+      <li><a [routerLink]="['about', 3]">About</a></li>
+      <li><a [routerLink]="['contact', 4]">Contact us</a></li>
+      <li><a [routerLink]="['protected']">Protected</a></li>
+    </div>
+  </div>
+</div>
 
-    <!--<app-login></app-login>-->
+<div id="content">
+  <div class="container">
 
-    <!--<hr>-->
+    <app-login></app-login>
 
-    <!--<router-outlet></router-outlet>-->
-  <!--</div>-->
-<!--</div>-->
+    <hr>
+
+    <router-outlet></router-outlet>
+  </div>
+</div>
